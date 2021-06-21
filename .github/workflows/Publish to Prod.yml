@@ -1,0 +1,35 @@
+name: Deploy to Prod
+
+on:
+#   push:
+#     branches: workspace_publish
+  workflow_dispatch:
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout code
+    - uses: actions/checkout@v2
+      with:
+        ref: workspace_publish
+  
+    - name: ls
+      run: ls ./adf-kjadev/
+
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZCREDENTIALS }}
+
+      # Deploy ARM template
+    - name: Run ARM deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.SUB }}
+        resourceGroupName: kjaprod
+        template: ./adf-kjadev/ARMTemplateForFactory.json
+        parameters: ./adf-kjadev/ProdARMParameters.json
+
+      # output containerName variable from template
+    - run: echo ${{ steps.deploy.outputs.containerName }}
