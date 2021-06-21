@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "SELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://kjastorage.dfs.core.windows.net/test/partitiontest/ORDERS/O_ORDERDATE=1992-01-01/part-00170-tid-3324066401681472990-a51d0461-15c2-4d2a-a8eb-1a648bc918bb-848-1.c000.snappy.parquet',\n        FORMAT='PARQUET'\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "master"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
