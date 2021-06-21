@@ -14,6 +14,9 @@ jobs:
       with:
         ref: publish_stage
 
+   - name: ls
+      run: ls ./kj-sourcesynapse/
+
       # Log into Azure
     - uses: azure/login@v1
       with:
@@ -25,6 +28,7 @@ jobs:
         TargetWorkspaceName: 'kj-targetsynapse'
         TemplateFile: './kj-sourcesynapse/TemplateForWorkspace.json'
         ParametersFile: './kj-sourcesynapse/TemplateParametersForWorkspace.json'
+        OverrideArmParameters: './kj-sourcesynapse/ProdTemplateParametersForWorkspace.json'
         environment: 'Azure Public'
         resourceGroup: 'kja-rg'
         clientId: ${{ secrets.CLIENTID }}
