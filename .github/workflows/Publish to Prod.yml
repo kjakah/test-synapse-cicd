@@ -27,5 +27,5 @@ jobs:
         clientSecret: ${{ secrets.CLIENTSECRET }}
         subscriptionId: "23b3554b-c081-418d-b674-b21c29fa1a13"
         tenantId: "6c637512-c417-4e78-9d62-b61258e4b619"
-        #activeDirectoryEndpointUrl: "https://login.microsoftonline.com"
-        #resourceManagerEndpointUrl: ${{ secrets.RME }}
+        activeDirectoryEndpointUrl: 'https://login.microsoftonline.com'
+        resourceManagerEndpointUrl: 'https://management.azure.com/'
