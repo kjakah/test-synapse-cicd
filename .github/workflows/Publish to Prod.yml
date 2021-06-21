@@ -16,7 +16,7 @@ jobs:
   
 
     - name: Run Synapse Deployment
-      uses: Azure/synapse-workspace-deployment
+      uses: azure/synapse-workspace-deployment@v0.2
       with:
         TargetWorkspaceName: 'kj-targetsynapse'
         TemplateFile: './kj-sourcesynapse/TemplateForWorkspace.json'
