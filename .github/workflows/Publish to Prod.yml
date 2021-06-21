@@ -21,7 +21,7 @@ jobs:
         TargetWorkspaceName: 'kj-targetsynapse'
         TemplateFile: './kj-sourcesynapse/TemplateForWorkspace.json'
         ParametersFile: './kj-sourcesynapse/TemplateParametersForWorkspace.json'
-        environment: 'prod'
+        environment: 'Azure Public'
         resourceGroup: 'kja-rg'
         clientId: ${{ secrets.CLIENTID }}
         clientSecret: ${{ secrets.CLIENTSECRET }}
