@@ -1,0 +1,31 @@
+name: Deploy to Prod
+
+on:
+#   push:
+#     branches: workspace_publish
+  workflow_dispatch:
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout code
+    - uses: actions/checkout@v2
+      with:
+        ref: publish_stage
+  
+
+    - name: Run Synapse Deployment
+      uses: Azure/synapse-workspace-deployment
+      with:
+        TargetWorkspaceName: 'kj-targetsynapse'
+        TemplateFile: './kj-sourcesynapse/TemplateForWorkspace.json'
+        ParametersFile: './kj-sourcesynapse/TemplateParametersForWorkspace.json'
+        environment: 'prod'
+        resourceGroup: 'kja-rg'
+        clientId: ${{ secrets.CLIENTID }}
+        clientSecret: ${{ secrets.CLIENTSECRET }}
+        subscriptionId: "23b3554b-c081-418d-b674-b21c29fa1a13"
+        tenantId: "6c637512-c417-4e78-9d62-b61258e4b619"
+        #activeDirectoryEndpointUrl: "https://login.microsoftonline.com"
+        #resourceManagerEndpointUrl: ${{ secrets.RME }}
