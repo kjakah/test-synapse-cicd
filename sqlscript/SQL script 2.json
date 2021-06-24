@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "SELECT\n    count(1)\nFROM\n    OPENROWSET(\n        BULK 'https://kjastorage.dfs.core.windows.net/test/partitiontest/ORDERS/*/*.snappy.parquet',\n        FORMAT='PARQUET'\n    ) AS [result]\n--WHERE [result].filepath(1) in ('O_ORDERDATE=1992-01-04') -- 623,268\nWHERE [result].filepath(1) in ('O_ORDERDATE=1992-01-04','O_ORDERDATE=1992-01-03')\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "master"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
