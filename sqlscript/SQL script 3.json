@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "create DATABASE JustForTesting\n\ncreate VIEW testServerless\nas\nSELECT\n    count(1)\nFROM\n    OPENROWSET(\n        BULK 'https://kjastorage.dfs.core.windows.net/test/partitiontest/ORDERS/*/*.snappy.parquet',\n        FORMAT='PARQUET'\n    ) AS [result]\nWHERE [result].filepath(1) in ('O_ORDERDATE=1992-01-01','O_ORDERDATE=1992-01-02') \n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "master"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
