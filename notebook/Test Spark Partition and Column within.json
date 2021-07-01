@@ -1,5 +1,5 @@
 {
-	"name": "Notebook 1",
+	"name": "Test Spark Partition and Column within",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -51,14 +51,15 @@
 				"metadata": {
 					"microsoft": {
 						"language": "python"
-					}
+					},
+					"collapsed": false
 				},
 				"source": [
 					"%%pyspark\r\n",
-					"df = spark.read.load('abfss://test@kjastorage.dfs.core.windows.net/partitiontest/ORDERS/O_ORDERDATE=1992-01-04/part-00143-tid-3324066401681472990-a51d0461-15c2-4d2a-a8eb-1a648bc918bb-915-1.c000.snappy.parquet', format='parquet')\r\n",
+					"df = spark.read.load('abfss://test@kjastorage.dfs.core.windows.net/partitiontest/Master_Order_spark_partition_with_column/Sub_Ord_Create_Dt_Key=20200606/Master_Order_20200606_00000.parquet', format='parquet')\r\n",
 					"display(df.limit(10))"
 				],
-				"execution_count": null
+				"execution_count": 10
 			},
 			{
 				"cell_type": "code",
