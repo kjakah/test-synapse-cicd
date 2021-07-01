@@ -2,7 +2,7 @@
 	"name": "testing spark partition with column within",
 	"properties": {
 		"content": {
-			"query": "SELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://kjastorage.dfs.core.windows.net/test/partitiontest/Master_Order_spark_partition_with_column/Sub_Ord_Create_Dt_Key=*/*.parquet',\n        FORMAT='PARQUET'\n    ) AS [result]\nwith [result].filepath(1) = 20200606",
+			"query": "SELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://kjastorage.dfs.core.windows.net/test/partitiontest/Master_Order_spark_partition_with_column/*/*.parquet',\n        FORMAT='PARQUET'\n    ) AS [result]\nwhere \n    [result].filepath(1) = 'Sub_Ord_Create_Dt_Key=20200606'",
 			"metadata": {
 				"language": "sql"
 			},
