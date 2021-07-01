@@ -1,0 +1,17 @@
+{
+	"name": "testing spark partition with column within",
+	"properties": {
+		"content": {
+			"query": "SELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://kjastorage.dfs.core.windows.net/test/partitiontest/Master_Order_spark_partition_with_column/Sub_Ord_Create_Dt_Key=*/*.parquet',\n        FORMAT='PARQUET'\n    ) AS [result]\nwith [result].filepath(1) = 20200606",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "master"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
