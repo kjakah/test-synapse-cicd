@@ -27,6 +27,18 @@
 			"type": "string",
 			"defaultValue": "Eastern Standard Time"
 		},
+		"test trigger change_properties_typeProperties_recurrence_schedule_minutes": {
+			"type": "array",
+			"defaultValue": [
+				0
+			]
+		},
+		"test trigger change_properties_typeProperties_recurrence_schedule_hours": {
+			"type": "array",
+			"defaultValue": [
+				13
+			]
+		},
 		"test trigger no change_properties_typeProperties_recurrence_frequency": {
 			"type": "string",
 			"defaultValue": "Day"
@@ -42,6 +54,18 @@
 		"test trigger no change_properties_typeProperties_recurrence_timeZone": {
 			"type": "string",
 			"defaultValue": "Eastern Standard Time"
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule_minutes": {
+			"type": "array",
+			"defaultValue": [
+				0
+			]
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule_hours": {
+			"type": "array",
+			"defaultValue": [
+				13
+			]
 		}
 	},
 	"variables": {
@@ -142,12 +166,8 @@
 						"startTime": "[parameters('test trigger change_properties_typeProperties_recurrence_startTime')]",
 						"timeZone": "[parameters('test trigger change_properties_typeProperties_recurrence_timeZone')]",
 						"schedule": {
-							"minutes": [
-								0
-							],
-							"hours": [
-								13
-							]
+							"minutes": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule_minutes')]",
+							"hours": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule_hours')]"
 						}
 					}
 				}
@@ -172,12 +192,8 @@
 						"startTime": "[parameters('test trigger no change_properties_typeProperties_recurrence_startTime')]",
 						"timeZone": "[parameters('test trigger no change_properties_typeProperties_recurrence_timeZone')]",
 						"schedule": {
-							"minutes": [
-								0
-							],
-							"hours": [
-								13
-							]
+							"minutes": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule_minutes')]",
+							"hours": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule_hours')]"
 						}
 					}
 				}

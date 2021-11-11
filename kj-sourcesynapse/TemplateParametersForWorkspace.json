@@ -20,6 +20,16 @@
 		"test trigger change_properties_typeProperties_recurrence_timeZone": {
 			"value": "Eastern Standard Time"
 		},
+		"test trigger change_properties_typeProperties_recurrence_schedule_minutes": {
+			"value": [
+				0
+			]
+		},
+		"test trigger change_properties_typeProperties_recurrence_schedule_hours": {
+			"value": [
+				13
+			]
+		},
 		"test trigger no change_properties_typeProperties_recurrence_frequency": {
 			"value": "Day"
 		},
@@ -31,6 +41,16 @@
 		},
 		"test trigger no change_properties_typeProperties_recurrence_timeZone": {
 			"value": "Eastern Standard Time"
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule_minutes": {
+			"value": [
+				0
+			]
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule_hours": {
+			"value": [
+				13
+			]
 		}
 	}
 }
