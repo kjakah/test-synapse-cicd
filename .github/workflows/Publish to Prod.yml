@@ -1,8 +1,8 @@
 name: Deploy to Prod
 
 on:
-#   push:
-#     branches: workspace_publish
+  push:
+    branches: publish_prod
   workflow_dispatch:
 
 jobs:
