@@ -11,29 +11,27 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'kj-sourcesynapse-WorkspaceDefaultSqlServer'"
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule_minutes": {
+		"test trigger change_properties_typeProperties_recurrence": {
 			"type": "array",
-			"defaultValue": [
-				0
-			]
+			"defaultValue": {
+				"minutes": [
+					0
+				],
+				"hours": [
+					13
+				]
+			}
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule_hours": {
+		"test trigger no change_properties_typeProperties_recurrence": {
 			"type": "array",
-			"defaultValue": [
-				13
-			]
-		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule_minutes": {
-			"type": "array",
-			"defaultValue": [
-				0
-			]
-		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule_hours": {
-			"type": "array",
-			"defaultValue": [
-				13
-			]
+			"defaultValue": {
+				"minutes": [
+					0
+				],
+				"hours": [
+					13
+				]
+			}
 		}
 	},
 	"variables": {
@@ -133,10 +131,7 @@
 						"interval": 1,
 						"startTime": "2021-11-11T15:35:00",
 						"timeZone": "Eastern Standard Time",
-						"schedule": {
-							"minutes": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule_minutes')]",
-							"hours": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule_hours')]"
-						}
+						"schedule": "[parameters('test trigger change_properties_typeProperties_recurrence')]"
 					}
 				}
 			},
@@ -159,10 +154,7 @@
 						"interval": 1,
 						"startTime": "2021-11-11T15:34:00",
 						"timeZone": "Eastern Standard Time",
-						"schedule": {
-							"minutes": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule_minutes')]",
-							"hours": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule_hours')]"
-						}
+						"schedule": "[parameters('test trigger no change_properties_typeProperties_recurrence')]"
 					}
 				}
 			},
