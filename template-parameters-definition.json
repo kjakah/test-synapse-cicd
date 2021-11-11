@@ -9,9 +9,10 @@
                     "timeZone": "=",
                     "schedule": {
                         "schedule": {
-                            "*":"="
+                            "*": "="
                         }
                     }
+                }
             }
         }
     }
