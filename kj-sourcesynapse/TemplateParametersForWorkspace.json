@@ -8,36 +8,48 @@
 		"kj-sourcesynapse-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
 		},
-		"test trigger change_properties_typeProperties_recurrence": {
+		"test trigger change_properties_typeProperties_recurrence_frequency": {
+			"value": "Day"
+		},
+		"test trigger change_properties_typeProperties_recurrence_interval": {
+			"value": 1
+		},
+		"test trigger change_properties_typeProperties_recurrence_startTime": {
+			"value": "2021-11-11T15:35:00"
+		},
+		"test trigger change_properties_typeProperties_recurrence_timeZone": {
+			"value": "Eastern Standard Time"
+		},
+		"test trigger change_properties_typeProperties_recurrence_schedule": {
 			"value": {
-				"frequency": "Day",
-				"interval": 1,
-				"startTime": "2021-11-11T15:35:00",
-				"timeZone": "Eastern Standard Time",
-				"schedule": {
-					"minutes": [
-						0
-					],
-					"hours": [
-						13
-					]
-				}
+				"minutes": [
+					0
+				],
+				"hours": [
+					13
+				]
 			}
 		},
-		"test trigger no change_properties_typeProperties_recurrence": {
+		"test trigger no change_properties_typeProperties_recurrence_frequency": {
+			"value": "Day"
+		},
+		"test trigger no change_properties_typeProperties_recurrence_interval": {
+			"value": 1
+		},
+		"test trigger no change_properties_typeProperties_recurrence_startTime": {
+			"value": "2021-11-11T15:34:00"
+		},
+		"test trigger no change_properties_typeProperties_recurrence_timeZone": {
+			"value": "Eastern Standard Time"
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule": {
 			"value": {
-				"frequency": "Day",
-				"interval": 1,
-				"startTime": "2021-11-11T15:34:00",
-				"timeZone": "Eastern Standard Time",
-				"schedule": {
-					"minutes": [
-						0
-					],
-					"hours": [
-						13
-					]
-				}
+				"minutes": [
+					0
+				],
+				"hours": [
+					13
+				]
 			}
 		}
 	}
