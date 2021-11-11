@@ -5,7 +5,7 @@
                 "recurrence": {
                     "*": "=",
                     "schedule": {
-                        "*": "="
+                        "*": "=::array"
                     }
                 }
             }
