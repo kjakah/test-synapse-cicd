@@ -12,7 +12,7 @@ jobs:
       # Checkout code
     - uses: actions/checkout@v2
       with:
-        ref: publish_stage
+        ref: publish_prod
         
     - name: ls
       run: ls ./kj-sourcesynapse/
@@ -23,7 +23,7 @@ jobs:
         creds: ${{ secrets.AZCREDENTIALS }}
   
     - name: Run Synapse Deployment
-      uses: azure/synapse-workspace-deployment@v0.2
+      uses: Azure/Synapse-workspace-deployment@v0.2
       with:
         TargetWorkspaceName: 'kj-targetsynapse'
         TemplateFile: './kj-sourcesynapse/TemplateForWorkspace.json'
@@ -35,5 +35,5 @@ jobs:
         clientSecret: ${{ secrets.CLIENTSECRET }}
         subscriptionId: "23b3554b-c081-418d-b674-b21c29fa1a13"
         tenantId: "6c637512-c417-4e78-9d62-b61258e4b619"
-        activeDirectoryEndpointUrl: 'https://login.microsoftonline.com'
+        activeDirectoryEndpointUrl: 'https://login.microsoftonline.com/'
         resourceManagerEndpointUrl: 'https://management.azure.com/'
