@@ -8,24 +8,36 @@
 		"kj-sourcesynapse-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule": {
+		"test trigger change_properties_typeProperties_recurrence": {
 			"value": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2021-11-11T15:35:00",
+				"timeZone": "Eastern Standard Time",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						13
+					]
+				}
 			}
 		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule": {
+		"test trigger no change_properties_typeProperties_recurrence": {
 			"value": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2021-11-11T15:34:00",
+				"timeZone": "Eastern Standard Time",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						13
+					]
+				}
 			}
 		}
 	}
