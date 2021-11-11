@@ -11,11 +11,11 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'kj-sourcesynapse-WorkspaceDefaultSqlServer'"
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule": {
-			"type": "object"
+		"test trigger change_properties_typeProperties_recurrence": {
+			"type": "array"
 		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule": {
-			"type": "object"
+		"test trigger no change_properties_typeProperties_recurrence": {
+			"type": "array"
 		}
 	},
 	"variables": {
@@ -115,7 +115,7 @@
 						"interval": 1,
 						"startTime": "2021-11-11T15:35:00",
 						"timeZone": "Eastern Standard Time",
-						"schedule": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]"
+						"schedule": "[parameters('test trigger change_properties_typeProperties_recurrence')]"
 					}
 				}
 			},
@@ -138,7 +138,7 @@
 						"interval": 1,
 						"startTime": "2021-11-11T15:34:00",
 						"timeZone": "Eastern Standard Time",
-						"schedule": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]"
+						"schedule": "[parameters('test trigger no change_properties_typeProperties_recurrence')]"
 					}
 				}
 			},
