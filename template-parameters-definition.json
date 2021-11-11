@@ -8,9 +8,7 @@
                     "startTime": "=",
                     "timeZone": "=",
                     "schedule": {
-                        "schedule": {
-                            "*": "="
-                        }
+                        "*": "="
                     }
                 }
             }
