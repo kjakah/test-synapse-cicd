@@ -2,7 +2,11 @@
     "Microsoft.Synapse/workspaces/triggers": {
         "properties": {
             "typeProperties": {
-                "recurrence": "="
+                "recurrence": {
+                    "schedule": {
+                        "*": "=::int"
+                    }
+                }
             }
         }
     }
