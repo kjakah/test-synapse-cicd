@@ -5,8 +5,8 @@
                 "recurrence": {
                     "*": "=",
                     "schedule": {
-                        "minutes": "=::array",
-                        "hours": "=::array"
+                        "minutes": "=",
+                        "hours": "="
                     }
                 }
             }
