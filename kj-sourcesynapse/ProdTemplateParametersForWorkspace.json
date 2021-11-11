@@ -12,7 +12,7 @@
 			"value": "Day"
 		},
 		"test trigger change_properties_typeProperties_recurrence_interval": {
-			"value": 1
+			"value": 150
 		},
 		"test trigger change_properties_typeProperties_recurrence_startTime": {
 			"value": "2021-11-11T15:35:00"
