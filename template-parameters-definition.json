@@ -5,8 +5,7 @@
                 "recurrence": {
                     "*": "=",
                     "schedule": {
-                        "minutes": "=",
-                        "hours": "="
+                        "*": "="
                     }
                 }
             }
