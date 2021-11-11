@@ -3,7 +3,7 @@
         "properties": {
             "typeProperties": {
                 "recurrence": {
-                    "schedule": "=::int"
+                    "schedule": "="
                 }
             }
         }
