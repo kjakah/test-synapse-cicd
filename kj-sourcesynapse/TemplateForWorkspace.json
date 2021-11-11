@@ -28,7 +28,7 @@
 			"defaultValue": "Eastern Standard Time"
 		},
 		"test trigger change_properties_typeProperties_recurrence_schedule": {
-			"type": "int",
+			"type": "array",
 			"defaultValue": [
 				13
 			]
@@ -50,7 +50,7 @@
 			"defaultValue": "Eastern Standard Time"
 		},
 		"test trigger no change_properties_typeProperties_recurrence_schedule": {
-			"type": "int",
+			"type": "array",
 			"defaultValue": [
 				13
 			]
