@@ -8,7 +8,7 @@
 		"kj-sourcesynapse-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule": {
+		"test trigger change_properties_typeProperties_recurrence": {
 			"value": {
 				"minutes": [
 					0
@@ -18,7 +18,7 @@
 				]
 			}
 		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule": {
+		"test trigger no change_properties_typeProperties_recurrence": {
 			"value": {
 				"minutes": [
 					0
