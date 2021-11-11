@@ -27,17 +27,6 @@
 			"type": "string",
 			"defaultValue": "Eastern Standard Time"
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule": {
-			"type": "object",
-			"defaultValue": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
-		},
 		"test trigger no change_properties_typeProperties_recurrence_frequency": {
 			"type": "string",
 			"defaultValue": "Day"
@@ -53,17 +42,6 @@
 		"test trigger no change_properties_typeProperties_recurrence_timeZone": {
 			"type": "string",
 			"defaultValue": "Eastern Standard Time"
-		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule": {
-			"type": "object",
-			"defaultValue": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
 		}
 	},
 	"variables": {
@@ -163,7 +141,14 @@
 						"interval": "[parameters('test trigger change_properties_typeProperties_recurrence_interval')]",
 						"startTime": "[parameters('test trigger change_properties_typeProperties_recurrence_startTime')]",
 						"timeZone": "[parameters('test trigger change_properties_typeProperties_recurrence_timeZone')]",
-						"schedule": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]"
+						"schedule": {
+							"minutes": [
+								0
+							],
+							"hours": [
+								13
+							]
+						}
 					}
 				}
 			},
@@ -186,7 +171,14 @@
 						"interval": "[parameters('test trigger no change_properties_typeProperties_recurrence_interval')]",
 						"startTime": "[parameters('test trigger no change_properties_typeProperties_recurrence_startTime')]",
 						"timeZone": "[parameters('test trigger no change_properties_typeProperties_recurrence_timeZone')]",
-						"schedule": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]"
+						"schedule": {
+							"minutes": [
+								0
+							],
+							"hours": [
+								13
+							]
+						}
 					}
 				}
 			},
