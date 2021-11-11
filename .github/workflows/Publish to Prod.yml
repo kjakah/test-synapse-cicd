@@ -27,7 +27,7 @@ jobs:
       with:
         TargetWorkspaceName: 'kj-targetsynapse'
         TemplateFile: './kj-sourcesynapse/TemplateForWorkspace.json'
-        ParametersFile: './kj-sourcesynapse/TemplateParametersForWorkspace.json'
+        ParametersFile: './kj-sourcesynapse/ProdTemplateParametersForWorkspace.json'
         OverrideArmParameters: './kj-sourcesynapse/ProdTemplateParametersForWorkspace.json'
         environment: 'Azure Public'
         resourceGroup: 'kja-rg'
