@@ -1,8 +1,8 @@
 name: Deploy to Prod
 
 on:
-#   push:
-#     branches: workspace_publish
+  push:
+    branches: publish_prod
   workflow_dispatch:
 
 jobs:
@@ -13,8 +13,8 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: publish_stage
-
-   - name: ls
+        
+    - name: ls
       run: ls ./kj-sourcesynapse/
 
       # Log into Azure
@@ -27,7 +27,7 @@ jobs:
       with:
         TargetWorkspaceName: 'kj-targetsynapse'
         TemplateFile: './kj-sourcesynapse/TemplateForWorkspace.json'
-        ParametersFile: './kj-sourcesynapse/TemplateParametersForWorkspace.json'
+        ParametersFile: './kj-sourcesynapse/ProdTemplateParametersForWorkspace.json'
         OverrideArmParameters: './kj-sourcesynapse/ProdTemplateParametersForWorkspace.json'
         environment: 'Azure Public'
         resourceGroup: 'kja-rg'
