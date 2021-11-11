@@ -27,7 +27,13 @@
 			"type": "string",
 			"defaultValue": "Eastern Standard Time"
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule": {
+		"test trigger change_properties_typeProperties_recurrence_schedule_minutes": {
+			"type": "array",
+			"defaultValue": [
+				0
+			]
+		},
+		"test trigger change_properties_typeProperties_recurrence_schedule_hours": {
 			"type": "array",
 			"defaultValue": [
 				13
@@ -49,7 +55,13 @@
 			"type": "string",
 			"defaultValue": "Eastern Standard Time"
 		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule": {
+		"test trigger no change_properties_typeProperties_recurrence_schedule_minutes": {
+			"type": "array",
+			"defaultValue": [
+				0
+			]
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule_hours": {
 			"type": "array",
 			"defaultValue": [
 				13
@@ -154,8 +166,8 @@
 						"startTime": "[parameters('test trigger change_properties_typeProperties_recurrence_startTime')]",
 						"timeZone": "[parameters('test trigger change_properties_typeProperties_recurrence_timeZone')]",
 						"schedule": {
-							"minutes": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]",
-							"hours": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]"
+							"minutes": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule_minutes')]",
+							"hours": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule_hours')]"
 						}
 					}
 				}
@@ -180,8 +192,8 @@
 						"startTime": "[parameters('test trigger no change_properties_typeProperties_recurrence_startTime')]",
 						"timeZone": "[parameters('test trigger no change_properties_typeProperties_recurrence_timeZone')]",
 						"schedule": {
-							"minutes": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]",
-							"hours": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]"
+							"minutes": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule_minutes')]",
+							"hours": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule_hours')]"
 						}
 					}
 				}
