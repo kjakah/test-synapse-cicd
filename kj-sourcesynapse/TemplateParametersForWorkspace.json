@@ -9,24 +9,10 @@
 			"value": ""
 		},
 		"test trigger change_properties_typeProperties_recurrence_schedule": {
-			"value": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
+			"value": ""
 		},
 		"test trigger no change_properties_typeProperties_recurrence_schedule": {
-			"value": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
+			"value": ""
 		}
 	}
 }

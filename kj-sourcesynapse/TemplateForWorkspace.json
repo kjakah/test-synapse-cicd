@@ -12,26 +12,10 @@
 			"metadata": "Secure string for 'connectionString' of 'kj-sourcesynapse-WorkspaceDefaultSqlServer'"
 		},
 		"test trigger change_properties_typeProperties_recurrence_schedule": {
-			"type": "object",
-			"defaultValue": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
+			"type": "object"
 		},
 		"test trigger no change_properties_typeProperties_recurrence_schedule": {
-			"type": "object",
-			"defaultValue": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
+			"type": "object"
 		}
 	},
 	"variables": {
