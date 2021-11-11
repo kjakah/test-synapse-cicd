@@ -1,0 +1,14 @@
+{
+    "Microsoft.Synapse/workspaces/triggers": {
+        "name": "test trigger change",
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "schedule": {
+                      "minutes": [0],
+                      "hours": [20]
+                    }
+            }
+        }
+    }
+}
