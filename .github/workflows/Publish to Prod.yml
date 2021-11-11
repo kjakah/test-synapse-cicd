@@ -13,8 +13,8 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: publish_stage
-
-   - name: ls
+        
+    - name: ls
       run: ls ./kj-sourcesynapse/
 
       # Log into Azure
