@@ -3,7 +3,7 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"workspaceName": {
-			"value": "kj-sourcesynapse"
+			"value": "kj-targetsynapse"
 		},
 		"kj-sourcesynapse-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
