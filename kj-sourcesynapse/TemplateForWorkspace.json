@@ -11,39 +11,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'kj-sourcesynapse-WorkspaceDefaultSqlServer'"
 		},
-		"test trigger change_properties_typeProperties_recurrence": {
-			"type": "object",
-			"defaultValue": {
-				"frequency": "Day",
-				"interval": 1,
-				"startTime": "2021-11-11T15:35:00",
-				"timeZone": "Eastern Standard Time",
-				"schedule": {
-					"minutes": [
-						0
-					],
-					"hours": [
-						13
-					]
-				}
-			}
+		"test trigger change_properties_typeProperties_recurrence_schedule": {
+			"type": "int",
+			"defaultValue": [
+				13
+			]
 		},
-		"test trigger no change_properties_typeProperties_recurrence": {
-			"type": "object",
-			"defaultValue": {
-				"frequency": "Day",
-				"interval": 1,
-				"startTime": "2021-11-11T15:34:00",
-				"timeZone": "Eastern Standard Time",
-				"schedule": {
-					"minutes": [
-						0
-					],
-					"hours": [
-						13
-					]
-				}
-			}
+		"test trigger no change_properties_typeProperties_recurrence_schedule": {
+			"type": "int",
+			"defaultValue": [
+				13
+			]
 		}
 	},
 	"variables": {
@@ -138,7 +116,16 @@
 				],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
-					"recurrence": "[parameters('test trigger change_properties_typeProperties_recurrence')]"
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2021-11-11T15:35:00",
+						"timeZone": "Eastern Standard Time",
+						"schedule": {
+							"minutes": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]",
+							"hours": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]"
+						}
+					}
 				}
 			},
 			"dependsOn": [
@@ -155,7 +142,16 @@
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
-					"recurrence": "[parameters('test trigger no change_properties_typeProperties_recurrence')]"
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2021-11-11T15:34:00",
+						"timeZone": "Eastern Standard Time",
+						"schedule": {
+							"minutes": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]",
+							"hours": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]"
+						}
+					}
 				}
 			},
 			"dependsOn": []
