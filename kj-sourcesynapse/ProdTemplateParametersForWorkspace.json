@@ -22,7 +22,12 @@
 		},
 		"test trigger change_properties_typeProperties_recurrence_schedule": {
 			"value": [
-				"hours":13
+					"minutes": [
+						0
+					],
+					"hours": [
+						13
+					]
 			]
 		},
 		"test trigger no change_properties_typeProperties_recurrence_frequency": {
