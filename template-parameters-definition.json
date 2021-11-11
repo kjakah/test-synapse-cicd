@@ -3,7 +3,8 @@
         "properties": {
             "typeProperties": {
                 "recurrence": {
-                    "schedule": "*:="
+                    "schedule": "="
+                }
             }
         }
     }
