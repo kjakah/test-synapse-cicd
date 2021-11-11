@@ -11,9 +11,27 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'kj-sourcesynapse-WorkspaceDefaultSqlServer'"
 		},
-		"kj-sourcesynapse-WorkspaceDefaultStorage_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://kjastorage.dfs.core.windows.net"
+		"test trigger change_properties_typeProperties_recurrence_schedule": {
+			"type": "object",
+			"defaultValue": {
+				"minutes": [
+					0
+				],
+				"hours": [
+					13
+				]
+			}
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule": {
+			"type": "object",
+			"defaultValue": {
+				"minutes": [
+					0
+				],
+				"hours": [
+					13
+				]
+			}
 		}
 	},
 	"variables": {
@@ -57,7 +75,10 @@
 				"annotations": [],
 				"type": "AzureSqlDW",
 				"typeProperties": {
-					"connectionString": "[parameters('kj-sourcesynapse-WorkspaceDefaultSqlServer_connectionString')]"
+					"connectionString": {
+						"type": "SecureString",
+						"value": "[parameters('kj-sourcesynapse-WorkspaceDefaultSqlServer_connectionString')]"
+					}
 				},
 				"connectVia": {
 					"referenceName": "AutoResolveIntegrationRuntime",
@@ -76,7 +97,7 @@
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('kj-sourcesynapse-WorkspaceDefaultStorage_properties_typeProperties_url')]"
+					"url": "https://kjastorage.dfs.core.windows.net"
 				},
 				"connectVia": {
 					"referenceName": "AutoResolveIntegrationRuntime",
@@ -110,14 +131,7 @@
 						"interval": 1,
 						"startTime": "2021-11-11T15:35:00Z",
 						"timeZone": "UTC",
-						"schedule": {
-							"minutes": [
-								0
-							],
-							"hours": [
-								13
-							]
-						}
+						"schedule": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]"
 					}
 				}
 			},
@@ -140,14 +154,7 @@
 						"interval": 1,
 						"startTime": "2021-11-11T15:34:00Z",
 						"timeZone": "UTC",
-						"schedule": {
-							"minutes": [
-								0
-							],
-							"hours": [
-								13
-							]
-						}
+						"schedule": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]"
 					}
 				}
 			},

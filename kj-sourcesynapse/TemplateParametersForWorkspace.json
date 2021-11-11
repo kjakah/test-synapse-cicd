@@ -8,8 +8,25 @@
 		"kj-sourcesynapse-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
 		},
-		"kj-sourcesynapse-WorkspaceDefaultStorage_properties_typeProperties_url": {
-			"value": "https://kjastorage.dfs.core.windows.net"
+		"test trigger change_properties_typeProperties_recurrence_schedule": {
+			"value": {
+				"minutes": [
+					0
+				],
+				"hours": [
+					13
+				]
+			}
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule": {
+			"value": {
+				"minutes": [
+					0
+				],
+				"hours": [
+					13
+				]
+			}
 		}
 	}
 }
