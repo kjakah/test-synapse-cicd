@@ -11,14 +11,26 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'kj-sourcesynapse-WorkspaceDefaultSqlServer'"
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule": {
-			"type": "int",
+		"test trigger change_properties_typeProperties_recurrence_schedule_minutes": {
+			"type": "array",
+			"defaultValue": [
+				0
+			]
+		},
+		"test trigger change_properties_typeProperties_recurrence_schedule_hours": {
+			"type": "array",
 			"defaultValue": [
 				13
 			]
 		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule": {
-			"type": "int",
+		"test trigger no change_properties_typeProperties_recurrence_schedule_minutes": {
+			"type": "array",
+			"defaultValue": [
+				0
+			]
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule_hours": {
+			"type": "array",
 			"defaultValue": [
 				13
 			]
@@ -122,8 +134,8 @@
 						"startTime": "2021-11-11T15:35:00",
 						"timeZone": "Eastern Standard Time",
 						"schedule": {
-							"minutes": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]",
-							"hours": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]"
+							"minutes": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule_minutes')]",
+							"hours": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule_hours')]"
 						}
 					}
 				}
@@ -148,8 +160,8 @@
 						"startTime": "2021-11-11T15:34:00",
 						"timeZone": "Eastern Standard Time",
 						"schedule": {
-							"minutes": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]",
-							"hours": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]"
+							"minutes": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule_minutes')]",
+							"hours": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule_hours')]"
 						}
 					}
 				}
