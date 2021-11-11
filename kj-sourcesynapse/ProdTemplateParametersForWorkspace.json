@@ -12,7 +12,7 @@
 			"value": "Day"
 		},
 		"test trigger change_properties_typeProperties_recurrence_interval": {
-			"value": 10
+			"value": 1
 		},
 		"test trigger change_properties_typeProperties_recurrence_startTime": {
 			"value": "2021-11-11T15:35:00"
@@ -20,15 +20,15 @@
 		"test trigger change_properties_typeProperties_recurrence_timeZone": {
 			"value": "Eastern Standard Time"
 		},
-		"test trigger change_properties_typeProperties_recurrence_schedule": {
-			"value": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
+		"test trigger change_properties_typeProperties_recurrence_schedule_minutes": {
+			"value": [
+				0
+			]
+		},
+		"test trigger change_properties_typeProperties_recurrence_schedule_hours": {
+			"value": [
+				13
+			]
 		},
 		"test trigger no change_properties_typeProperties_recurrence_frequency": {
 			"value": "Day"
@@ -42,15 +42,15 @@
 		"test trigger no change_properties_typeProperties_recurrence_timeZone": {
 			"value": "Eastern Standard Time"
 		},
-		"test trigger no change_properties_typeProperties_recurrence_schedule": {
-			"value": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
+		"test trigger no change_properties_typeProperties_recurrence_schedule_minutes": {
+			"value": [
+				0
+			]
+		},
+		"test trigger no change_properties_typeProperties_recurrence_schedule_hours": {
+			"value": [
+				13
+			]
 		}
 	}
 }
