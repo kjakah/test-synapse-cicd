@@ -11,27 +11,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'kj-sourcesynapse-WorkspaceDefaultSqlServer'"
 		},
-		"test trigger change_properties_typeProperties_recurrence": {
-			"type": "array",
-			"defaultValue": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
+		"test trigger change_properties_typeProperties_recurrence_schedule": {
+			"type": "int",
+			"defaultValue": [
+				13
+			]
 		},
-		"test trigger no change_properties_typeProperties_recurrence": {
-			"type": "array",
-			"defaultValue": {
-				"minutes": [
-					0
-				],
-				"hours": [
-					13
-				]
-			}
+		"test trigger no change_properties_typeProperties_recurrence_schedule": {
+			"type": "int",
+			"defaultValue": [
+				13
+			]
 		}
 	},
 	"variables": {
@@ -131,7 +121,10 @@
 						"interval": 1,
 						"startTime": "2021-11-11T15:35:00",
 						"timeZone": "Eastern Standard Time",
-						"schedule": "[parameters('test trigger change_properties_typeProperties_recurrence')]"
+						"schedule": {
+							"minutes": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]",
+							"hours": "[parameters('test trigger change_properties_typeProperties_recurrence_schedule')]"
+						}
 					}
 				}
 			},
@@ -154,7 +147,10 @@
 						"interval": 1,
 						"startTime": "2021-11-11T15:34:00",
 						"timeZone": "Eastern Standard Time",
-						"schedule": "[parameters('test trigger no change_properties_typeProperties_recurrence')]"
+						"schedule": {
+							"minutes": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]",
+							"hours": "[parameters('test trigger no change_properties_typeProperties_recurrence_schedule')]"
+						}
 					}
 				}
 			},
