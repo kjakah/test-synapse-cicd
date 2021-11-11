@@ -1,6 +1,5 @@
 {
     "Microsoft.Synapse/workspaces/triggers": {
-        "name": "test trigger change",
         "properties": {
             "typeProperties": {
                 "recurrence": {
