@@ -4,7 +4,7 @@
             "typeProperties": {
                 "recurrence": {
                     "schedule": {
-                        "*": "=::int"
+                        "*": "="
                     }
                 }
             }
