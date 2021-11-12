@@ -2,16 +2,7 @@
     "Microsoft.Synapse/workspaces/triggers": {
         "properties": {
             "typeProperties": {
-                "recurrence": {
-                    "*": "=",
-                    "schedule": {
-                        "minutes": "=",
-                        "hours": "="
-                    },
-                    "interval": "=:triggerSuffix:int",
-                    "frequency": "=:-freq"
-                },
-                "maxConcurrency": "="
+                "recurrence": "="
             }
         }
     }
