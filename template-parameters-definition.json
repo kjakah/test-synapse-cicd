@@ -1,4 +1,3 @@
-{
     "Microsoft.Synapse/workspaces/triggers": {
         "properties": {
             "typeProperties": {
@@ -7,9 +6,11 @@
                     "schedule": {
                         "minutes": "=",
                         "hours": "="
-                    }
-                }
+                    },
+                    "interval": "=:triggerSuffix:int",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
             }
         }
     }
-}
