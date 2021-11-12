@@ -1,3 +1,4 @@
+{
     "Microsoft.Synapse/workspaces/triggers": {
         "properties": {
             "typeProperties": {
@@ -14,3 +15,4 @@
             }
         }
     }
+}
