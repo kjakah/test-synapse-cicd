@@ -23,7 +23,7 @@ jobs:
         creds: ${{ secrets.AZCREDENTIALS }}
   
     - name: Run Synapse Deployment
-      uses: Azure/Synapse-workspace-deployment@v1.2.1
+      uses: Azure/Synapse-workspace-deployment@V1.2.1
       with:
         TargetWorkspaceName: 'kj-targetsynapse'
         TemplateFile: './kj-sourcesynapse/TemplateForWorkspace.json'
