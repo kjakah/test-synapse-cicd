@@ -11,15 +11,15 @@
 		"test trigger change_properties_typeProperties_recurrence": {
 			"value": {
 				"frequency": "Day",
-				"interval": 4,
+				"interval": 45,
 				"startTime": "2021-11-11T15:35:00",
 				"timeZone": "Eastern Standard Time",
 				"schedule": {
 					"minutes": [
-						22,1,0
+						30
 					],
 					"hours": [
-						22,5
+						5,20,15
 					]
 				}
 			}
