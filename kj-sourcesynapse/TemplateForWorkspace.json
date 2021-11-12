@@ -11,11 +11,11 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'kj-sourcesynapse-WorkspaceDefaultSqlServer'"
 		},
-		"test trigger change_properties_typeProperties_recurrence_frequency": {
+		"test trigger change_freq": {
 			"type": "string",
 			"defaultValue": "Day"
 		},
-		"test trigger change_properties_typeProperties_recurrence_interval": {
+		"test trigger change_properties_typeProperties_recurrence_triggerSuffix": {
 			"type": "int",
 			"defaultValue": 1
 		},
@@ -39,11 +39,11 @@
 				13
 			]
 		},
-		"test trigger no change_properties_typeProperties_recurrence_frequency": {
+		"test trigger no change_freq": {
 			"type": "string",
 			"defaultValue": "Day"
 		},
-		"test trigger no change_properties_typeProperties_recurrence_interval": {
+		"test trigger no change_properties_typeProperties_recurrence_triggerSuffix": {
 			"type": "int",
 			"defaultValue": 1
 		},
@@ -161,8 +161,8 @@
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
-						"frequency": "[parameters('test trigger change_properties_typeProperties_recurrence_frequency')]",
-						"interval": "[parameters('test trigger change_properties_typeProperties_recurrence_interval')]",
+						"frequency": "[parameters('test trigger change_freq')]",
+						"interval": "[parameters('test trigger change_properties_typeProperties_recurrence_triggerSuffix')]",
 						"startTime": "[parameters('test trigger change_properties_typeProperties_recurrence_startTime')]",
 						"timeZone": "[parameters('test trigger change_properties_typeProperties_recurrence_timeZone')]",
 						"schedule": {
@@ -187,8 +187,8 @@
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
-						"frequency": "[parameters('test trigger no change_properties_typeProperties_recurrence_frequency')]",
-						"interval": "[parameters('test trigger no change_properties_typeProperties_recurrence_interval')]",
+						"frequency": "[parameters('test trigger no change_freq')]",
+						"interval": "[parameters('test trigger no change_properties_typeProperties_recurrence_triggerSuffix')]",
 						"startTime": "[parameters('test trigger no change_properties_typeProperties_recurrence_startTime')]",
 						"timeZone": "[parameters('test trigger no change_properties_typeProperties_recurrence_timeZone')]",
 						"schedule": {
