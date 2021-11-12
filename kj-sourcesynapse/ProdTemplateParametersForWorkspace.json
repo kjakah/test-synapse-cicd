@@ -16,10 +16,10 @@
 				"timeZone": "Eastern Standard Time",
 				"schedule": {
 					"minutes": [
-						30
+						45
 					],
 					"hours": [
-						5,20,15
+						15
 					]
 				}
 			}
