@@ -32,7 +32,7 @@
 				"timeZone": "Eastern Standard Time",
 				"schedule": {
 					"minutes": [
-						0
+						0,5,59
 					],
 					"hours": [
 						13
