@@ -22,12 +22,12 @@ jobs:
       with:
         creds: ${{ secrets.AZCREDENTIALS }}
    
-#     - name: pause trigger
-#       shell: pwsh
-#       run: |
-#         $triggersSynapseJson = az synapse trigger list --workspace-name kj-targetsynapse
-#         $triggersSynapseObject = $triggersSynapseJson | ConvertFrom-Json
-#         $triggersSynapseObject | ForEach-Object { az synapse trigger stop --workspace-name kj-targetsynapse --name $_.name}
+    - name: pause trigger
+      shell: pwsh
+      run: |
+        $triggersSynapseJson = az synapse trigger list --workspace-name kj-targetsynapse
+        $triggersSynapseObject = $triggersSynapseJson | ConvertFrom-Json
+        $triggersSynapseObject | ForEach-Object { az synapse trigger stop --workspace-name kj-targetsynapse --name $_.name}
 
     - name: Run Synapse Deployment
       uses: Azure/Synapse-workspace-deployment@V1.2.2
