@@ -26,9 +26,10 @@ jobs:
       shell: pwsh
       run: |
         $triggersSynapseJson = az synapse trigger list --workspace-name kj-targetsynapse
-        $triggersSynapseObject = $triggersSynapseJson | ConvertFrom-Json        
-        $triggersSynapseObject | ForEach-Object { az synapse trigger stop --workspace-name kj-targetsynapse --name $_.name}
-        echo "::set-output name=TRIGGER_STATUS::{$triggersSynapseObject}"
+        $triggersSynapseObject = $triggersSynapseJson | ConvertFrom-Json
+        $startedTriggersObject = $triggersSynapseObject | ForEach-Object { IF($_.properties.runtimeState -eq "Started") { $_.name } } 
+        echo "::set-output name=TRIGGER_STARTED::{$startedTriggersObject}"
+        $triggersSynapseObject | ForEach-Object { az synapse trigger stop --workspace-name kj-targetsynapse --name $_.name}        
       id: pausing-triggers
 
 #     - name: Run Synapse Deployment
