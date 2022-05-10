@@ -57,6 +57,6 @@ jobs:
     - name: start proper triggers
       shell: pwsh
       run: |
-        $startedTriggerCSV = ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED_CSV }}
+        $startedTriggerCSV = ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED_CSV }}.ToString()
         $startedTriggerCSV.GetType()
     
