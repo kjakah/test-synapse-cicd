@@ -58,5 +58,7 @@ jobs:
       shell: pwsh
       run: |
         $startedTriggerCSV = ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED_CSV }}.ToString()
-        $startedTriggerCSV.GetType()
+        $startedTriggerCSV
+        $startedTriggerArray = startedTriggerCSV.split(",")
+        $startedTriggerArray
     
