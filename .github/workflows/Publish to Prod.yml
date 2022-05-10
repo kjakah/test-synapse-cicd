@@ -27,8 +27,9 @@ jobs:
       run: |
         $triggersSynapseJson = az synapse trigger list --workspace-name kj-targetsynapse
         $triggersSynapseObject = $triggersSynapseJson | ConvertFrom-Json
-        $startedTriggerJson = $triggersSynapseObject | ForEach-Object { IF($_.properties.runtimeState -eq "Started") { $_.name } } | ConvertTo-Json
-        echo "::set-output name=TRIGGER_STARTED::{$startedTriggerJson}" 
+        $startedTriggerObject = $triggersSynapseObject | ForEach-Object { IF($_.properties.runtimeState -eq "Started") { $_.name } } | ConvertTo-Json
+        $startedTriggerCSV = $startedTriggerObject -join ","
+        echo "::set-output name=TRIGGER_STARTED_CSV::{$startedTriggerCSV}" 
         $triggersSynapseObject | ForEach-Object { az synapse trigger stop --workspace-name kj-targetsynapse --name $_.name}        
       id: pausing-triggers
 
@@ -56,5 +57,6 @@ jobs:
     - name: start proper triggers
       shell: pwsh
       run: |
-        $startedTriggerObject = ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED }}
+        $startedTriggerCSV = ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED_CSV }}
+        $startedTriggerObject = $startedTriggerCSV.sprint(",")
         $startedTriggerObject
