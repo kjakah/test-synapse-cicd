@@ -56,4 +56,4 @@ jobs:
     - name: start proper triggers
       shell: pwsh
       run: |
-        echo ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED }}
+        echo ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED | ConvertFrom-Json}}
