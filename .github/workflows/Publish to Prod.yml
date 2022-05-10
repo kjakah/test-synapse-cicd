@@ -56,4 +56,4 @@ jobs:
     - name: start proper triggers
       shell: pwsh
       run: |
-        echo ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED }}
+        ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED }} | ForEach-Object { az synapse trigger start --workspace-name kj-targetsynapse --name $_.name}
