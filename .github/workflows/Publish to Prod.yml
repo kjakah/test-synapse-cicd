@@ -56,4 +56,5 @@ jobs:
     - name: start proper triggers
       shell: pwsh
       run: |
-        ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED }}
+        $startedTriggerObject = ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED }}
+        $startedTriggerObject
