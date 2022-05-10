@@ -54,11 +54,10 @@ jobs:
 #         $triggersSynapseObject = $triggersSynapseJson | ConvertFrom-Json
 #         $triggersSynapseObject | ForEach-Object { az synapse trigger start --workspace-name kj-targetsynapse --name $_.name}
 
-    - name: start proper triggers
+    - name: start triggers triggers
       shell: pwsh
       run: |
         $startedTriggerCSV = ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED_CSV }}.ToString()
-        $startedTriggerCSV
         $startedTriggerArray = $startedTriggerCSV.split(",")
-        $startedTriggerArray
+        $startedTriggerArray | ForEach-Object { az synapse trigger start --workspace-name kj-targetsynapse --name $_.name}
     
