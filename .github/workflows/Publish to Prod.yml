@@ -27,8 +27,8 @@ jobs:
       run: |
         $triggersSynapseJson = az synapse trigger list --workspace-name kj-targetsynapse
         $triggersSynapseObject = $triggersSynapseJson | ConvertFrom-Json
-        $startedTriggersObject = $triggersSynapseObject | ForEach-Object { IF($_.properties.runtimeState -eq "Started") { $_.name } } 
-        echo "::set-output name=TRIGGER_STARTED::{$startedTriggersObject}"
+        $startedTriggersJson = $triggersSynapseObject | ForEach-Object { IF($_.properties.runtimeState -eq "Started") { $_.name } } | ConvertTo-Json
+        echo "::set-output name=TRIGGER_STARTED::{$startedTriggersJson}"
         $triggersSynapseObject | ForEach-Object { az synapse trigger stop --workspace-name kj-targetsynapse --name $_.name}        
       id: pausing-triggers
 
