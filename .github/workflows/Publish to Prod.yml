@@ -59,6 +59,6 @@ jobs:
       run: |
         $startedTriggerCSV = ${{ steps.pausing-triggers.outputs.TRIGGER_STARTED_CSV }}.ToString()
         $startedTriggerCSV
-        $startedTriggerArray = startedTriggerCSV.split(",")
+        $startedTriggerArray = $startedTriggerCSV.split(",")
         $startedTriggerArray
     
