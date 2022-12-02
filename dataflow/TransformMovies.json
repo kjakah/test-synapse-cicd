@@ -46,6 +46,8 @@
 				"     AverageComedyRating = avg(toInteger(Rating))) ~> AggregateComedyRatings",
 				"AggregateComedyRatings sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     partitionFileNames:['moviesDBAgg.csv'],",
+				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
