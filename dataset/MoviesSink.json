@@ -11,6 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "moviesDBAgg.csv",
+				"folderPath": "moviesOutput",
 				"fileSystem": "kjatraining"
 			},
 			"columnDelimiter": ",",
