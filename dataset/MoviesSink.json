@@ -1,0 +1,23 @@
+{
+	"name": "MoviesSink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "kj-sourcesynapse-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "moviesDBAgg.csv",
+				"fileSystem": "kjatraining"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
