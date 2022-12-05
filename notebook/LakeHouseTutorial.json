@@ -13,12 +13,12 @@
 			"executorMemory": "28g",
 			"executorCores": 4,
 			"numExecutors": 2,
-			"runAsWorkspaceSystemIdentity": true,
+			"runAsWorkspaceSystemIdentity": false,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "5c582073-7947-476c-8e4e-d47539f361fc"
+				"spark.autotune.trackingId": "aeebbeca-2b1f-475b-8285-04fbca7bb060"
 			}
 		},
 		"metadata": {
@@ -75,7 +75,7 @@
 					"# Display dfUpdates\r\n",
 					"dfUpdates.show()"
 				],
-				"execution_count": 13
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
@@ -100,7 +100,7 @@
 					"#dfUpdates\r\n",
 					"dfUpdates.createOrReplaceTempView('Employee_Updates')"
 				],
-				"execution_count": 15
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -119,7 +119,7 @@
 					"from notebookutils import mssparkutils\r\n",
 					"mssparkutils.fs.help()"
 				],
-				"execution_count": 7
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -138,7 +138,7 @@
 					"# works\r\n",
 					"mssparkutils.fs.ls(\"abfss://lakehousetest@kjastorage.dfs.core.windows.net/\")"
 				],
-				"execution_count": 16
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
