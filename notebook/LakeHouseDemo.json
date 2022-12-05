@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "65a90a7e-6aa0-46bd-9c6c-fe9b92d77a0b"
+				"spark.autotune.trackingId": "4b39ff80-9d31-49eb-8554-298fcb2e2ae4"
 			}
 		},
 		"metadata": {
@@ -112,12 +112,26 @@
 						"transient": {
 							"deleting": false
 						}
+					},
+					"microsoft": {
+						"language": "sparksql"
 					}
 				},
 				"source": [
-					""
+					"%%sql\r\n",
+					"-- Create Delta Lake table, define schema and location\r\n",
+					"CREATE TABLE DELTA_Employees (\r\n",
+					"  Employee STRING NOT NULL,\r\n",
+					"  Salary INT NOT NULL,\r\n",
+					"  BeginDate DATE NOT NULL,\r\n",
+					"  EndDate DATE NOT NULL,\r\n",
+					"  CurrentRecord INT NOT NULL \r\n",
+					")\r\n",
+					"USING DELTA\r\n",
+					"-- specify data lake folder location\r\n",
+					"LOCATION '/Delta_Demo/Employees/'"
 				],
-				"execution_count": null
+				"execution_count": 11
 			}
 		]
 	}
