@@ -1,0 +1,117 @@
+{
+	"name": "MountingInfo",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "e1923194-489c-4735-beb3-459e40faf895"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "python"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"# mounting info\r\n",
+					"# https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/synapse-file-mount-api\r\n",
+					"from notebookutils import mssparkutils\r\n",
+					"mssparkutils.fs.help()\r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# works\r\n",
+					"mssparkutils.fs.ls(\"abfss://lakehousetest@kjastorage.dfs.core.windows.net/Employee\")"
+				],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# mounting\r\n",
+					"# params:\r\n",
+					"    # 1) the container\r\n",
+					"    # 2) the mount name\r\n",
+					"    # 3) linked service\r\n",
+					"mssparkutils.fs.mount( \r\n",
+					"    \"abfss://lakehousetest@kjastorage.dfs.core.windows.net/\", \r\n",
+					"    \"/lakehousetest\", \r\n",
+					"    {\"linkedService\":\"kj-sourcesynapse-WorkspaceDefaultStorage\"} \r\n",
+					")"
+				],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"\r\n",
+					"\r\n",
+					"#** HOT GARBAGE gievn this JobI this: synfs:/{jobId}/test/{filename}...\r\n",
+					"\r\n",
+					"jobID = mssparkutils.env.getJobId()\r\n",
+					"\r\n",
+					"path = \"synfs:/{}/lakehousetest/\".format(jobID)\r\n",
+					"mssparkutils.fs.ls(path)"
+				],
+				"execution_count": null
+			}
+		]
+	}
+}
