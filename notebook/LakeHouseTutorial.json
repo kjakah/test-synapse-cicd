@@ -18,7 +18,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "34a3ae4a-5559-4c44-afc1-44033c7352e5"
+				"spark.autotune.trackingId": "5c582073-7947-476c-8e4e-d47539f361fc"
 			}
 		},
 		"metadata": {
@@ -113,26 +113,13 @@
 						"transient": {
 							"deleting": false
 						}
-					},
-					"microsoft": {
-						"language": "sparksql"
 					}
 				},
 				"source": [
-					"%%sql\r\n",
-					"-- Create Delta Lake table, define schema and location\r\n",
-					"CREATE TABLE DemoLakeDatabase.DELTA_Employees (\r\n",
-					"  Employee STRING ,\r\n",
-					"  Salary INT ,\r\n",
-					"  BeginDate DATE ,\r\n",
-					"  EndDate DATE ,\r\n",
-					"  CurrentRecord INT  \r\n",
-					")\r\n",
-					"USING DELTA\r\n",
-					"-- specify data lake folder location\r\n",
-					"LOCATION '/lakehousetest/tutorial/'"
+					"from notebookutils import mssparkutils\r\n",
+					"mssparkutils.fs.help()"
 				],
-				"execution_count": 56
+				"execution_count": 7
 			},
 			{
 				"cell_type": "code",
@@ -148,7 +135,35 @@
 					}
 				},
 				"source": [
-					"help(dbutils)"
+					"# works\r\n",
+					"mssparkutils.fs.ls(\"abfss://lakehousetest@kjastorage.dfs.core.windows.net/\")"
+				],
+				"execution_count": 16
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# mounting\r\n",
+					"# params:\r\n",
+					"    # 1) the container\r\n",
+					"    # 2) the mount name\r\n",
+					"    # 3) linked service\r\n",
+					"mssparkutils.fs.mount( \r\n",
+					"    \"abfss://lakehousetest@kjastorage.dfs.core.windows.net/\", \r\n",
+					"    \"/lakehousetest\", \r\n",
+					"    {\"linkedService\":\"kj-sourcesynapse-WorkspaceDefaultStorage\"} \r\n",
+					")"
 				],
 				"execution_count": null
 			}
