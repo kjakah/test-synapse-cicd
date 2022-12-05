@@ -11,7 +11,7 @@
 		},
 		"Source": {
 			"Provider": "ADLS",
-			"Location": "abfss://lakehousetest@kjastorage.dfs.core.windows.net/",
+			"Location": "abfss://lakehousetest@kjastorage.dfs.core.windows.net/tutorial",
 			"Properties": {
 				"FormatType": "parquet",
 				"LinkedServiceName": "kj-sourcesynapse-WorkspaceDefaultStorage"
