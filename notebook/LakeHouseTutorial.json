@@ -18,7 +18,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "7d7fcd8f-0fa5-4598-96f9-b2a6ab4d2252"
+				"spark.autotune.trackingId": "367105de-bbce-4d52-b4e5-d389de4e63ba"
 			}
 		},
 		"metadata": {
@@ -186,9 +186,9 @@
 				"source": [
 					"%%sql\r\n",
 					"-- Create Delta Lake table, define schema and location\r\n",
-					"CREATE TABLE DemoLakeDatabase.Employees USING DELTA LOCATION \"abfss://lakehousetest@kjastorage.dfs.core.windows.net/Employee\""
+					"CREATE TABLE Employees USING DELTA LOCATION \"abfss://lakehousetest@kjastorage.dfs.core.windows.net/Employee\""
 				],
-				"execution_count": 74
+				"execution_count": 77
 			}
 		]
 	}
