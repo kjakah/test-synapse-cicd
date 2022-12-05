@@ -1,0 +1,195 @@
+{
+	"name": "LakeHouseTutorial",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "larger",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "367105de-bbce-4d52-b4e5-d389de4e63ba"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/23b3554b-c081-418d-b674-b21c29fa1a13/resourceGroups/kja-rg/providers/Microsoft.Synapse/workspaces/kj-sourcesynapse/bigDataPools/larger",
+				"name": "larger",
+				"type": "Spark",
+				"endpoint": "https://kj-sourcesynapse.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/larger",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.2",
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"# SOURCE: https://iterationinsights.com/article/exploring-delta-lake-in-azure-synapse-analytics/#synapse\r\n",
+					"\r\n",
+					"# Define column headers\r\n",
+					"columns = [\"Employee\",\"Salary\"]\r\n",
+					"\r\n",
+					"# Define data for original dataframe\r\n",
+					"empOriginal = [(\"Employee_1\",50000),(\"Employee_2\",55000)]\r\n",
+					"\r\n",
+					"# Define data for updates dataframe\r\n",
+					"empUpdates = [(\"Employee_1\",50000),(\"Employee_2\",60000),(\"Employee_3\",55000)]\r\n",
+					"\r\n",
+					"# Create dataframe with orignial employee data\r\n",
+					"dfOriginal = spark.createDataFrame(data = empOriginal,schema = columns)\r\n",
+					"\r\n",
+					"# Create dataframe with updated employee data\r\n",
+					"dfUpdates = spark.createDataFrame(data = empUpdates,schema = columns)\r\n",
+					"\r\n",
+					"# Display dfOriginal\r\n",
+					"dfOriginal.show()\r\n",
+					"\r\n",
+					"# Display dfUpdates\r\n",
+					"dfUpdates.show()"
+				],
+				"execution_count": 63
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Create temp views of both the dfOriginal and dfUpdates dataframes \r\n",
+					"# so that we can easily query them with Spark SQL later\r\n",
+					"\r\n",
+					"#dfOriginal\r\n",
+					"dfOriginal.createOrReplaceTempView('Employee_Original')\r\n",
+					"\r\n",
+					"#dfUpdates\r\n",
+					"dfUpdates.createOrReplaceTempView('Employee_Updates')"
+				],
+				"execution_count": 47
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Define column headers\r\n",
+					"columns = StructType([StructField('Employee', StringType(), True),\r\n",
+					"                      StructField('Salary', IntegerType(), True)]                      \r\n",
+					"                      )\r\n",
+					"\r\n",
+					"# Define data for original dataframe\r\n",
+					"emp_RDD = spark.sparkContext.emptyRDD()\r\n",
+					"\r\n",
+					"# Create dataframe with orignial employee data\r\n",
+					"dfOriginal = spark.createDataFrame(data = emp_RDD,schema = columns)"
+				],
+				"execution_count": 48
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"delta_table_path = \"abfss://lakehousetest@kjastorage.dfs.core.windows.net/Employee\"\r\n",
+					"\r\n",
+					"dfOriginal.write.format(\"delta\").save(delta_table_path)"
+				],
+				"execution_count": 75
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"dfOriginal.show()"
+				],
+				"execution_count": 73
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					}
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Create Delta Lake table, define schema and location\r\n",
+					"CREATE TABLE Employees USING DELTA LOCATION \"abfss://lakehousetest@kjastorage.dfs.core.windows.net/Employee\""
+				],
+				"execution_count": 77
+			}
+		]
+	}
+}
