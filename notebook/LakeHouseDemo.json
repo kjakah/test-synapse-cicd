@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "1fab74de-461e-4395-8ae0-9d2ae96cf7b1"
+				"spark.autotune.trackingId": "65a90a7e-6aa0-46bd-9c6c-fe9b92d77a0b"
 			}
 		},
 		"metadata": {
@@ -98,6 +98,24 @@
 					"\r\n",
 					"#dfUpdates\r\n",
 					"dfUpdates.createOrReplaceTempView('Employee_Updates')"
+				],
+				"execution_count": 2
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
 				],
 				"execution_count": null
 			}
